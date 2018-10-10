@@ -1,18 +1,21 @@
 # FlexiRent
 Javafx的公寓租赁系统
 
-COSC1295 Advanced Programming 
-Computer Science and Information Technology 
+
+
+#### COSC1295 Advanced Programming
+
+Computer Science and Information Technology
+
 School of Science, RMIT
 
-
 Assignment 1 - Semester 2, 2018
-
 
 Submission due date: by 11:59 PM on Sunday 26th of August (end of Week 6)
 
 
-Introduction
+
+##### Introduction
 
 
 This assignment is worth 15% towards your final grade. 
@@ -30,8 +33,7 @@ You are required to implement a basic Java program using Java Standard Edition 8
 * Practise the implementation of various kinds of classes in Java
 * Practise the use of polymorphism
 
-
-Academic Integrity
+##### Academic Integrity
 
 
 The submitted assignment must be your own work. For more information, please visit http://www.rmit.edu.au/academicintegrity.
@@ -39,9 +41,9 @@ The submitted assignment must be your own work. For more information, please vis
 
 Plagiarism is treated very seriously at RMIT. Plagiarism includes copying code directly from other students, internet or other resources without proper reference. Sometimes, students study and work on assignments together and submit similar files which may be regarded as plagiarism. Please note that you should always create your own assignment even if you have very similar ideas.
 
-
 Plagiarism-detection tools will be used for all submissions. Penalties may be applied in cases of plagiarism.
-Overview
+
+##### Overview
 
 
 NOTE: Carefully read this document. In addition, regularly follow the Canvas assignment discussion board for assignment related clarifications and discussion.
@@ -49,8 +51,7 @@ NOTE: Carefully read this document. In addition, regularly follow the Canvas ass
 
 For this assignment you need to write a console application in the Java programming language which allows a company called FlexiRent to manage the renting and maintenance of various types of rental apartments in Melbourne CBD. Unlike traditional hotels, FlexiRent offers stylish 1, 2, and 3-bedroom Apartments and Premium Suites for short-term stays in Melbourne.
 
-
-Rental Property
+###### Rental Property
 
 
 Each rental property managed by FlexiRent has the following attributes:
@@ -84,8 +85,7 @@ Note: You are free to use your own format, as long as each rental property is un
 
 Furthermore, each rental property also keeps its own collection of Rental Records. These store information about the 10 most recent times that property has been rented.
 
-
-Rental Record
+###### Rental Record
 
 
 Each Rental Record has the following attributes:
@@ -128,8 +128,7 @@ Example: a customer wants to rent a property on 14/07/2018 for 3 days, hence the
 
 Note: Apartment and Premium Suite have different formulae to calculate rental fee and late fee, which will be shown further down
 
-
-Apartment
+###### Apartment
 
 
 As mentioned above, FlexiRent has two types of properties for short-term rental. The first type is Apartment, which has the following characteristics:
@@ -163,8 +162,7 @@ As mentioned above, FlexiRent has two types of properties for short-term rental.
 
 
 
-
-Premium Suite
+###### Premium Suite
 
 
 The second type of rental property FlexiRent offers for short-term rent is called Premium Suite. It is even more spacious, with an excellent view of Melbourne CBD. Each Premium Suite has the following characteristics:
@@ -195,8 +193,7 @@ The second type of rental property FlexiRent offers for short-term rent is calle
                 
 Example: a Premium Suite is available and last underwent maintenance on 15/07/2018. Maintenance must be done for that suite no later than 25/07/2018.  Therefore, if a customer wants to rent that suite on 21/07/2018 for 5 days, the FlexiRent system will reject that request.
 
-
-Implementation Requirements
+##### Implementation Requirements
 
 
 General Implementation Requirements
@@ -211,8 +208,8 @@ General Implementation Requirements
 * It is not necessary to use dynamic data structures to store the input data (i.e. it is fine to define a fixed size data structure taking into account the maximum possible amount of input data).
 * Your programs will be marked with Java SE 8.0. Make sure you test your programs with this setting before you make the submission.
 
+###### Main Implementation Requirements
 
-Main Implementation Requirements
 Your Rental Record class must meet the following requirements:
 
 
@@ -266,8 +263,7 @@ Late Fee:              0.00
 
 
 
-
-Implementation requirements for all rental property classes (Apartment and Premium Suite)
+###### Implementation requirements for all rental property classes (Apartment and Premium Suite)
 
 
 Each rental property must maintain its own collection of rental records. These records store information about the 10 most recent times that property has been rented. 
@@ -283,7 +279,9 @@ The following methods can be called on any object of type Apartment or Premium S
 (Hint: implementing these methods is a good chance for you to apply inheritance and polymorphism in your code)
 
 
-        public boolean rent(String customerId, DateTime rentDate, int numOfRentDay)
+```java
+    public boolean rent(String customerId, DateTime rentDate, int numOfRentDay)
+```
 
 
 This method is called on a rental property object (either an Apartment or a Premium Suite) to perform the operations required to rent this property. 
@@ -297,8 +295,9 @@ If the property is available for rent, this method will perform all necessary op
 
 Finally, this method will return true if the property can be rented successfully.
 
-
+```java
 public boolean returnProperty(DateTime returnDate)
+```
 
 
 This method is called on a rental property object (either an Apartment or a Premium Suite) to perform the operations required to return this property.
@@ -313,7 +312,9 @@ If the property can be returned, this method will perform all necessary operatio
 Finally, this method will return true if the property can be returned successfully.
 
 
-        public boolean performMaintenance()
+```java
+    public boolean performMaintenance()
+```
 
 
 This method is called on a rental property object (either an Apartment or a Premium Suite) to perform the operations required to perform the maintenance of that property
@@ -324,8 +325,9 @@ This method should check for pre-conditions to determine if maintenance operatio
 
 If the property is ready for maintenance, this method will perform all necessary operations to update the information stored in this property object when a maintenance happens. Finally, this method will return true if the property is now under maintenance.
 
-
+```java
 public boolean completeMaintenance(DateTime completionDate)
+```
 
 
 This method is called on a rental property object (either an Apartment or a Premium Suite) to perform the operations required when the maintenance of that property is finished.
@@ -336,8 +338,11 @@ This method should check for pre-conditions. For example, when this property is 
 
 If it is possible to complete maintenance, this method will perform all necessary operations to update the information stored in this property object now that maintenance has been finished. Finally, this method will return true to indicate that the maintenance of this property has finished.
 
-
+```java
 public String toString() 
+```
+
+
 
 
 This method should build a string and return it to the calling method. The returned string should be formatted in a pre-defined format as shown below:
@@ -360,8 +365,11 @@ Example 2: A Premium Suite is currently being rented, having id S_63WMSB and add
 
 S_63WMSB:63:Whiteman Street:Southbank:Premium Suite:3:Rented:22/07/2018
 
-
+```java
 public String getDetails()
+```
+
+
 
 
 This method should build a string and return it to the calling method. This method SHOULD NOT do the actual printing. The returned string contains all information about the rental property, including details about up to 10 most recent rental records of that property. The returned string should be formatted in a pre-defined human readable format. See the examples below:
@@ -389,8 +397,8 @@ Status:      Rented
 RENTAL RECORD
 Record ID:             A_108CRSB_ABC1234_25072018
 Rent Date:             25/07/2018
+
 Estimated Return Date: 28/07/2018
---------------------------------------
 
 
 Example 3: a Premium Suite is currently being rented. It was rented and returned one time before.
@@ -405,20 +413,20 @@ Last maintenance: 23/07/2018
 RENTAL RECORD
 Record ID:             S_63WMSB_CUS1108_29072018
 Rent Date:             29/07/2018
+
 Estimated Return Date: 01/08/2018
---------------------------------------
+
 Record ID:             S_63WMSB_CUS6237_23072018
 Rent Date:             23/07/2018
 Estimated Return Date: 26/07/2018
 Actual Return Date:    26/07/2018
 Rental Fee:            1662.00
+
 Late Fee:              0.00
---------------------------------------
 
 
 
-
-Implementing the FlexiRentSystem application class
+###### Implementing the FlexiRentSystem application class
 
 
 You are required to implement a class named FlexiRentSystem which will contain one single array to store up to 50 objects of both type Apartment and Premium Suite. Objects of type Apartment and Premium Suite will be added during runtime by the user of your program in the command line using a menu system described below.
@@ -528,11 +536,11 @@ Rent Date:             22/07/2018
 Estimated Return Date: 25/07/2018
 Actual Return Date:    26/07/2018
 Rental Fee:            957.00
+
 Late Fee:              366.85
---------------------------------------
 
 
-****** Rental Company ******
+Rental Company 
 Add Property:                1
 Rent Property:                2
 ...............
@@ -552,7 +560,7 @@ Enter property id: A_668BSMEL
 Apartment A_668BSMEL is now under maintenance
 
 
-****** Rental Company ******
+Rental Company 
 Add Property:                1
 Rent Property:                2
 ...............
@@ -573,7 +581,7 @@ Maintenance completion date (dd/mm/yyyy): 24/07/2018
 Premium Suite S_63WMSB has all maintenance completed and ready for rent
 
 
-****** Rental Company ******
+Rental Company 
 Add Property:                1
 Rent Property:                2
 Return Property:                3
@@ -613,7 +621,7 @@ Class Diagram Format
 The diagram below summarises one way to express common items in a class diagram:
 
 
-  
+
 
 Submission Details
 
@@ -638,12 +646,15 @@ Submission due date: by 11:59 PM on Sunday 26th of August (end of Week 6).
 
 You should compress all your design documents and source code into one zip file and submit only that zip file (no RAR or 7-Zip).
 
-
 Please do NOT submit compiled files (*.class files), or you will get zero.
 You will get zero if the submitted code cannot be compiled.
 
 
-COSC1295 Advanced Programming
+
+
+
+#### COSC1295 Advanced Programming
+
 Assignment 2 - Semester 2, 2018
 Submission due date: 11:59 PM on Sunday 14th of October (end of Week 12)
 Academic Integrity
@@ -652,16 +663,18 @@ The submitted assignment must be your own work. For more information, please vis
 Plagiarism is treated very seriously at RMIT. Plagiarism includes copying code directly from other students, internet or other resources without proper reference. Sometimes, students study and work on assignments together and submit similar files which may be regarded as plagiarism. Please note that you should always create your own assignment even if you have very similar ideas.
 
 Plagiarism-detection tools will be used for all submissions. Penalties may be applied in cases of plagiarism.
-Overview
+
+##### Overview
+
 You are required to use Java SE 8.0 and JavaFX to develop a Graphical User Interface (GUI) for the FlexiRent rental property management program created in Assignment 1. 
 
 This assignment is designed to help you:
 
 1.	Develop your skills of using various Java collection classes and exception handling
-2.	Enhance your ability to build a Graphical User Interface using JavaFX
-3.	Practise implementation of various GUI event handlers
-4.	Read from and write to a database using Java JDBC technology
-5.	Incorporate text file handling in your program to import and export data 
+	.	Enhance your ability to build a Graphical User Interface using JavaFX
+	.	Practise implementation of various GUI event handlers
+	.	Read from and write to a database using Java JDBC technology
+	.	Incorporate text file handling in your program to import and export data 
 
 NOTE:
 •	This assignment is of a size and scope that can be done as an individual assignment. Group work is not allowed.
@@ -675,7 +688,7 @@ General Implementation Requirements
 •	Marks will be allocated to proper documentation and coding layout and style. Your coding style should be consistent with standard coding conventions shown in the General Implementation Requirements section of Assignment 1.
 •	Your programs will be marked with Java SE 8.0. Make sure you test your programs with this setting before you make the submission.
 
-Task Specifications
+##### Task Specifications
 
 NOTE: Carefully read the following requirements. In addition, regularly follow the Canvas assignment discussion board for assignment related clarifications and discussion.
 Packages and Organisation of Code
@@ -687,33 +700,36 @@ You must use the following packages to separate your code into sets of related c
 •	model: contains all your classes to store and process data (RentalProperty, Apartment, PremiumSuite...) and all database and file handling classes
 
 You can use sub-packages inside the packages shown above.
-Data Generation
+
+##### Data Generation
 
 You are required to generate data for 15 property, including 10 Apartments (with random number of rooms and locations of your choices) and 5 Premium Suites. Each property needs to have 2 or 3 completed rental records with random customer ids. 
 
 For this assignment, each property will have a corresponding image and a long description which is from 80 to 100 characters.
 
 Each property image should have a moderate size (from 100KB to 250KB). Click here for an example of such an image. You must keep all images in a folder named images which is a direct sub-folder of your assignment project. If a property has no corresponding image, a default image with the phrase "No Image Available" should be used.
-Collections and Exception Handlings
 
-Collections
+##### Collections and Exception Handlings
+
+###### Collections
 
 In this assignment, you are required to used various collections in the Java Collection Framework such as ArrayList, Set and HashMap to store data instead of using fixed-length array as in assignment 1.
 
-Creating Custom Exception Classes
+###### Creating Custom Exception Classes
 
 In assignment 1, methods such as rent(...), returnProperty(...), performMaintenance(), completeMaintenance(..) have boolean as return type to indicate whether the corresponding operation is executed successfully or not. In assignment 2, you are required to modify all those methods so that all of them will return void instead of boolean and will throw custom exceptions. As a consequence, you are required to create custom exceptions such as RentException, ReturnException, InvalidIdException…. to represent various exceptional cases that can occur when those methods are executed. All of those custom exception types should allow appropriate error messages to be specified when exception objects are created.
 
-Generating and Propagating Exception Objects
+###### Generating and Propagating Exception Objects
 
 To use your custom exceptions effectively, you will need to look for areas in your program where you need to handle various cases such as when there is an invalid property id,  or when a property cannot be rented or returned, or when there is an invalid user input… Then you should generate appropriate exceptions and then throw those exceptions back to the appropriate class to be handled.
 
-Handling Exceptions
+###### Handling Exceptions
 
 Those various exception objects should then be allowed to propagate back to the appropriate class (i.e. those exception should not be caught locally within the class that generated the exception).
 
 All exceptions will need to be caught and handled in a appropriate manner by displaying a message via the GUI to the user the error message contained within the various exception objects that have been propagated up from the relevant method call.
-Using Database For Data Persistence
+
+###### Using Database For Data Persistence
 
 Every time your program is opened and terminated, data will be read from and save to a database. For this assignment, you should use an embedded HSQLDB (shown in the lecture) or SQLite database. You must keep all database files in a folder named database which is a direct sub-folder of your assignment project.
 
@@ -721,10 +737,11 @@ You must create at least two tables in your database. One table named RENTAL_PRO
 
 NOTE: No need to store images directly in the database. Only image file names should be stored as text in the database. All images will still be kept in the images folder which is a direct sub-folder of your assignment project. 
 
-Graphical User Interface (GUI)
+##### Graphical User Interface (GUI)
+
 All user interaction with the Flexirent system will be done via the GUI. Users should be able to click buttons, select menu items, choose options from combo boxes to perform all functionalities described in Assignment 1 such as add, rent and return a property as well as perform and complete property maintenance. 
 
-Main Program Window
+###### Main Program Window
 
 •	This is the first window users will see when running your program.
 •	This window should contain a menu bar or menu pane from which users can execute the main functionalities of your program, such as import, export data, quit the program and other main functionalities described below. When users click a button or select a menu item, new windows can be opened to allow users to perform corresponding functionalities.
@@ -732,7 +749,7 @@ Main Program Window
 o	In this list, each list item provides an overview of a rental property with an image of that property, property type, status... and a button that users can click on to go to the detail view of that property to perform more functionalities related to that property (described below)
 •	Search and filtering capabilities: your main window should also contain various combo boxes, allowing users to filter the property list by type (Apartment, Premium Suite) or by number of bedrooms (1, 2, or 3 bedrooms) or by status (Available, Rented, Maintenance) or by suburb.
 
-Property Detail Window
+###### Property Detail Window
 
 •	When the user selects a property in the property list of the Main Program Window, your program should display this Property Details Window to allow users to see all details of the property which has been selected, including the property image and long description.
 •	This window must have a scrollable list to display complete rental records of that property.
@@ -740,7 +757,7 @@ Property Detail Window
 •	This window must still keep the main menu bar or menu pane as mentioned in the Main Program Window description shown above, allowing users to perform common activities such import, export data, quit the program and other main functionalities that you see reasonable.
 •	Users should be provided with a way to return to the Main Program Window from this Detail Window
 
-Other GUI Requirements
+###### Other GUI Requirements
 
 •	You are encouraged to explore and use various other JavaFX User Interface (UI) controls to implement your graphical interfaces for functionalities such as add property, return property, maintenance and complete maintenance. My suggestions for such UI controls are the Dialog class and its subclasses such as TextInputDialog, ChoiceDialog and Alert classes in the javafx.scene.control package. 
 •	All user inputs via the GUI must be validated
@@ -748,7 +765,7 @@ Other GUI Requirements
 •	Important functionalities such as Save to Database, Import, Export, Quit should always be available in your program.
 •	There will be GUI Demo in the tutorial in week 11 or week 12 (details will be announced later)
 
-Using Text Files for Exporting and Importing Data
+##### Using Text Files for Exporting and Importing Data
 
 Your FlexiRent GUI program must allow users to export and import all rental property and rental record data to and from text files. One way to implement this feature is by adding Export Data and Import Data menu items in the main menu bar or menu pane of your program GUI. 
 
@@ -763,7 +780,7 @@ NOTE: You don't need to export images. All images will still be kept in the imag
 For instructions about using HSQLDB with Eclipse, please visit this page
 https://tinyurl.com/y7hty8tg
 
-Other Requirements
+##### Other Requirements
 
 •	Although you are not required to use more than one class per task, you are required to modularise classes properly. No method should be longer than 50 lines.
 •	You should aim to provide high cohesion and low coupling.
